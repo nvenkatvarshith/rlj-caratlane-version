@@ -1,22 +1,130 @@
 import logo from './../assets/RLJ_Logo.png';
+import { useState } from 'react';
 
 function Navbar() {
-    const categories = [
-            "Rings",
-            "Earrings",
-            "Bracelets & Bangles",
-            "Solitaries",
-            "Mangalsutras",
-            "Necklaces & Pendants",
-            "Silver by Shaya",
-            "Gifting",
-            "Collections",
-            "More Jewellery",
-            "Trending"
-            ];
+    const categories:string[] = [
+        "Rings",
+        "Earrings",
+        "Bracelets & Bangles",
+        "Solitaries",
+        "Mangalsutras",
+        "Necklaces & Pendants",
+        "Silver by Shaya",
+        "Gifting",
+        "Collections",
+        "More Jewellery",
+        "Trending"
+    ];
 
-    const displaySubCategories = (category:string) => {
-        console.log(category);
+    interface MenuColumn {
+        category: string;
+        items: string[];
+    }
+
+    interface Promotion {
+        title: string;
+        imageUrl: string;
+    }
+
+    interface CategoryData {
+        links: MenuColumn[];
+        promotions: Promotion[];
+    }
+
+    // Define the full structure
+    interface NavigationData {
+        rings: CategoryData;
+        earrings: CategoryData;
+    };
+
+    const navigationData:NavigationData = {
+        rings: {
+            links: [
+                {
+                    category: "Featured",
+                    items: ["Latest Designs", "Bestsellers", "Fast Delivery", "Special Deals"]
+                },
+                {
+                    category: "By Style",
+                    items: [
+                        "All Rings", "Engagement", "Dailywear", "Infinity",
+                        "Cocktail", "Solitaire", "Couple Rings", "Bands",
+                        "Promise Rings", "Silver By Shaya"
+                    ]
+                },
+                {
+                    category: "By Metal & Stone",
+                    items: [
+                        "Diamond", "Pearl", "Navratna", "Gemstone", "Platinum",
+                        "Gold", "Rose Gold", "Yellow Gold", "White Gold", "22KT Gold"
+                    ]
+                },
+                {
+                    category: "By Price",
+                    items: [
+                        "Under ₹ 10k", "₹ 10k - ₹ 20k", "₹ 20k - ₹ 30k",
+                        "₹ 30k - ₹ 50k", "₹ 40k - ₹ 50k", "₹ 50k - ₹ 75k", "₹ 75k & Above"
+                    ]
+                }
+            ],
+            promotions: [
+                { title: "Message Bands", imageUrl: "https://cdn.caratlane.com/media/static/images/V4/2025/CL/02-FEB/Banner/New_Website/MenuBar/Desktop_01/MenuBar_Desktop_MB.jpg" },
+                { title: "Postcards", imageUrl: "https://cdn.caratlane.com/media/static/images/V4/2025/CL/02-FEB/Banner/New_Website/MenuBar/Desktop_01/MenuBar_Desktop_PC.jpg" }
+            ]
+        },
+        earrings: {
+            links: [
+                {
+                    category: "Featured",
+                    items: ["Latest Designs", "Bestsellers", "Fast Delivery", "Special Deals"]
+                },
+                {
+                    category: "By Style",
+                    items: [
+                        "All Earrings", "Studs", "Hoops", "Drops", "Earcuffs",
+                        "Sui Dhagas", "Jhumkas", "Chandbalis", "Silver Earrings"
+                    ]
+                },
+                {
+                    category: "By Metal & Stone",
+                    items: [
+                        "Diamond", "Pearl", "Navratna", "Gemstone", "Platinum",
+                        "Rose Gold", "Yellow Gold", "White Gold", "22kt Gold"
+                    ]
+                },
+                {
+                    category: "By Price",
+                    items: [
+                        "Under ₹ 10k", "₹ 10k - ₹ 20k", "₹ 20k - ₹ 30k",
+                        "₹ 30k - ₹ 50k", "₹ 50k - ₹ 75k", "₹ 75k & Above"
+                    ]
+                }
+            ],
+            promotions: [
+                { title: "Switch", imageUrl: "https://cdn.caratlane.com/media/static/images/V4/2025/CL/02-FEB/Banner/New_Website/MenuBar/Desktop_01/MenuBar_Desktop_Switch.jpg" },
+                { title: "Dancing Hoops", imageUrl: "https://cdn.caratlane.com/media/static/images/V4/2025/CL/02-FEB/Banner/New_Website/MenuBar/Desktop_01/MenuBar_Desktop_DH.jpg" }
+            ]
+        }
+    };
+
+    let [currentMenuData, setCurrentMenuDate] = useState<CategoryData>(navigationData["rings"]);
+
+
+    const displaySubCategories = (category: string) => {
+        document.getElementById("subcategory")?.classList.remove("d-none");
+        const subcategoryElement = document.getElementById("subcategory");
+            if (subcategoryElement) {
+                subcategoryElement.classList.remove("d-none");
+            }
+
+            const data = navigationData[category.toLowerCase() as keyof typeof navigationData];
+            if (data) {
+                setCurrentMenuDate(data);
+            }
+    };
+
+    const disableSubCategory = () => {
+        document.getElementById("subcategory")?.classList.add("d-none");
     };
 
     return (
@@ -59,7 +167,7 @@ function Navbar() {
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                             {categories.map((category) => {
                                 return (
-                                    <li className="nav-item me-3" key={category} onMouseOver={() => displaySubCategories(category)}>
+                                    <li className="nav-item me-3" key={category} onMouseOver={() => displaySubCategories(category)} onMouseOut={disableSubCategory}>
                                         <a className="nav-link" href="#">{category}</a>
                                     </li>
                                 );
@@ -68,24 +176,39 @@ function Navbar() {
                     </div>
                 </div>
             </nav>
-
-            <div id='subcategory' className='w-100'>
-                <h1>Featured</h1>
-                <ul className='list-unstyled' id='featured'>
-                    
-                </ul>
-                <h1>By Style</h1>
-                <ul className='list-unstyled' id='featured'>
-                    
-                </ul>
-                <h1>By Metal & Stone</h1>
-                <ul className='list-unstyled' id='featured'>
-                    
-                </ul>
-                <h1>By Price</h1>
-                <ul className='list-unstyled' id='featured'>
-                    
-                </ul>
+            <div className='container pt-3 d-none' id='subcategory'>
+                <div className='w-100 d-flex column-gap-5'>
+                    {
+                        currentMenuData["links"].map((subcategory) => {
+                            return (
+                                <div key={subcategory.category}>
+                                    <h6>{subcategory.category}</h6>
+                                    <ul className='list-unstyled mt-3' id='featured'>
+                                        {
+                                            subcategory.items.map((item) => {
+                                                return (
+                                                    <li key={item} className='mb-2'>{item}</li>
+                                                )
+                                            })
+                                        }
+                                    </ul>
+                                </div>
+                            )
+                        })
+                    }
+                    {
+                        currentMenuData["promotions"].map((promotion) => {
+                            return (
+                                <div className="card" id="featureditem2" style={{ width: "15rem" }}>
+                                    <img src={promotion.imageUrl} className="card-img-top" alt="..." />
+                                    <div className="card-body">
+                                        <h5 className="card-title">{promotion.title }</h5>
+                                    </div>
+                                </div>
+                            )
+                        })
+                    }
+                </div>
             </div>
         </div>
     );

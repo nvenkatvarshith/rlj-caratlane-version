@@ -31,7 +31,6 @@ function Navbar() {
         promotions: Promotion[];
     }
 
-    // Define the full structure
     interface NavigationData {
         rings: CategoryData;
         earrings: CategoryData;
@@ -176,7 +175,7 @@ function Navbar() {
                     </div>
                 </div>
             </nav>
-            <div className='container pt-3 d-none' id='subcategory'>
+            <div className='container pt-3 d-none z-20' id='subcategory'>
                 <div className='w-100 d-flex column-gap-5'>
                     {
                         currentMenuData["links"].map((subcategory) => {
@@ -199,7 +198,7 @@ function Navbar() {
                     {
                         currentMenuData["promotions"].map((promotion) => {
                             return (
-                                <div className="card" id="featureditem2" style={{ width: "15rem" }}>
+                                <div className="card" key={promotion.title} style={{ width: "15rem" }}>
                                     <img src={promotion.imageUrl} className="card-img-top" alt="..." />
                                     <div className="card-body">
                                         <h5 className="card-title">{promotion.title }</h5>

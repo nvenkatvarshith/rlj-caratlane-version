@@ -45,13 +45,13 @@ function FeaturedCollection(){
                 <div className="col-lg-6 pe-0">
                     <img src={collection.imgUrl} alt="Featured Collection" className="w-100 rounded-start-3" />
                 </div>
-                <div className="col-lg-6 pt-4 ps-4 bg-dark">
+                <div className="col-lg-6 pt-3 bg-dark">
                     <div className="row flex-nowrap overflow-x-hidden column-gap-2">                            
                     {
                         collection.products.map((product) => {
                             return (
                                 <div className="col-lg-3" key={product.id}>
-                                    <div className="card border-0" key={product.id} style={{width: "13rem"}}>
+                                    <div className="card border-0" key={product.id} style={{width: "11rem"}}>
                                         <img src={product.prodImgUrl} className="card-img-top border-1 rounded-4" alt="..."/>
                                         <div className="card-body small text-light bg-dark">
                                             <h6>{`₹${product.discountPrice}`} <span className="text-decoration-line-through text-secondary">₹{product.price}</span></h6>

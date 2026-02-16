@@ -50,8 +50,8 @@ function FeaturedCollection(){
                     {
                         collection.products.map((product) => {
                             return (
-                                <div className="col-lg-3">
-                                    <div className="card border-0" key={product.id} style={{width: "13rem;"}}>
+                                <div className="col-lg-3" key={product.id}>
+                                    <div className="card border-0" key={product.id} style={{width: "13rem"}}>
                                         <img src={product.prodImgUrl} className="card-img-top border-1 rounded-4" alt="..."/>
                                         <div className="card-body small text-light bg-dark">
                                             <h6>{`₹${product.discountPrice}`} <span className="text-decoration-line-through text-secondary">₹{product.price}</span></h6>

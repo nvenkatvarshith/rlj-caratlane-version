@@ -2,6 +2,7 @@ import './App.css'
 import Navbar from './components/Navbar'
 import BannerSlider from './components/BannerSlider'
 import FeaturedCollection from './components/FeaturedCollection'
+import CollectionGrid from './components/CollectionGrid'
 
 function App() {
 
@@ -10,6 +11,7 @@ function App() {
         <Navbar/>
         <BannerSlider />
         <FeaturedCollection />
+        <CollectionGrid />
     </div>
   )
 }

@@ -122,6 +122,10 @@ function Navbar() {
             }
     };
 
+    const displaySubCategory = () => {
+        document.getElementById("subcategory")?.classList.remove("d-none");
+    };
+
     const disableSubCategory = () => {
         document.getElementById("subcategory")?.classList.add("d-none");
     };
@@ -156,57 +160,58 @@ function Navbar() {
                     </li>
                 </ul>
             </nav>
-
-            <nav className="navbar navbar-expand-lg bg-body-secondary ps-3">
-                <div className="container-fluid">
-                    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span className="navbar-toggler-icon"></span>
-                    </button>
-                    <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                            {categories.map((category) => {
-                                return (
-                                    <li className="nav-item me-3" key={category} onMouseOver={() => displaySubCategories(category)} onMouseOut={disableSubCategory}>
-                                        <a className="nav-link" href="#">{category}</a>
-                                    </li>
-                                );
-                            })}
-                        </ul>
+            <div className='main-nav position-relative'>
+                <nav className="navbar navbar-expand-lg bg-body-secondary ps-3">
+                    <div className="container-fluid">
+                        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span className="navbar-toggler-icon"></span>
+                        </button>
+                        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                                {categories.map((category) => {
+                                    return (
+                                        <li className="nav-item me-3" key={category} onMouseOver={() => displaySubCategories(category)} onMouseOut={disableSubCategory}>
+                                            <a className="nav-link" href="#">{category}</a>
+                                        </li>
+                                    );
+                                })}
+                            </ul>
+                        </div>
                     </div>
-                </div>
-            </nav>
-            <div className='container pt-3 d-none z-20' id='subcategory'>
-                <div className='w-100 d-flex column-gap-5'>
-                    {
-                        currentMenuData["links"].map((subcategory) => {
-                            return (
-                                <div key={subcategory.category}>
-                                    <h6>{subcategory.category}</h6>
-                                    <ul className='list-unstyled mt-3' id='featured'>
-                                        {
-                                            subcategory.items.map((item) => {
-                                                return (
-                                                    <li key={item} className='mb-2'>{item}</li>
-                                                )
-                                            })
-                                        }
-                                    </ul>
-                                </div>
-                            )
-                        })
-                    }
-                    {
-                        currentMenuData["promotions"].map((promotion) => {
-                            return (
-                                <div className="card" key={promotion.title} style={{ width: "15rem" }}>
-                                    <img src={promotion.imageUrl} className="card-img-top" alt="..." />
-                                    <div className="card-body">
-                                        <h5 className="card-title">{promotion.title }</h5>
+                </nav>
+                <div className='w-100 pt-3 d-none position-absolute z-3 bg-light pb-4' id='subcategory' onMouseOver={displaySubCategory} onMouseOut={disableSubCategory}>
+                    <div className='w-100 d-flex column-gap-5 justify-content-center'>
+                        {
+                            currentMenuData["links"].map((subcategory) => {
+                                return (
+                                    <div key={subcategory.category}>
+                                        <h6>{subcategory.category}</h6>
+                                        <ul className='list-unstyled mt-3' id='featured'>
+                                            {
+                                                subcategory.items.map((item) => {
+                                                    return (
+                                                        <li key={item} className='mb-2'>{item}</li>
+                                                    )
+                                                })
+                                            }
+                                        </ul>
                                     </div>
-                                </div>
-                            )
-                        })
-                    }
+                                )
+                            })
+                        }
+                        {
+                            currentMenuData["promotions"].map((promotion) => {
+                                return (
+                                    <div className="card" key={promotion.title} style={{ width: "15rem" }}>
+                                        <img src={promotion.imageUrl} className="card-img-top" alt="..." />
+                                        <div className="card-body">
+                                            <h5 className="card-title">{promotion.title }</h5>
+                                        </div>
+                                    </div>
+                                )
+                            })
+                        }
+                    </div>
                 </div>
             </div>
         </div>

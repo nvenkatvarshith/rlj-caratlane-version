@@ -161,7 +161,7 @@ function Navbar() {
                 </ul>
             </nav>
             <div className='main-nav position-relative'>
-                <nav className="navbar navbar-expand-lg bg-body-secondary ps-3">
+                <nav className="navbar navbar-expand-lg bg-body-secondary ps-3" onMouseLeave={disableSubCategory}>
                     <div className="container-fluid">
                         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                             <span className="navbar-toggler-icon"></span>
@@ -170,7 +170,7 @@ function Navbar() {
                             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                                 {categories.map((category) => {
                                     return (
-                                        <li className="nav-item me-3" key={category} onMouseOver={() => displaySubCategories(category)} onMouseOut={disableSubCategory}>
+                                        <li className="nav-item me-3" key={category} onMouseOver={() => displaySubCategories(category)}>
                                             <a className="nav-link" href="#">{category}</a>
                                         </li>
                                     );

@@ -1,0 +1,5 @@
+.collectionBig:hover{
+    transform: scale(110%);
+    transition: transform 0.3s 0s ease;
+    cursor: pointer;
+}

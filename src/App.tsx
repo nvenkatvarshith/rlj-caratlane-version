@@ -1,21 +1,17 @@
 import './App.css'
 import Navbar from './components/Navbar'
-import BannerSlider from './components/BannerSlider'
-import FeaturedCollection from './components/FeaturedCollection'
-import CollectionGrid from './components/CollectionGrid'
-import CollectionList from './components/CollectionList'
-import CollectionListBig from './components/CollectionListBig'
+import Homepage from './pages/Homepage'
+import {Routes, Route} from 'react-router-dom'
 
 function App() {
 
   return (
     <div>
         <Navbar/>
-        <BannerSlider />
-        <FeaturedCollection />
-        <CollectionGrid />
-        <CollectionList />
-        <CollectionListBig />
+        <Routes>
+          <Route path='' element={<Homepage />}></Route>
+        </Routes>
+        
     </div>
   )
 }

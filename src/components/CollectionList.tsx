@@ -1,30 +1,14 @@
-function CollectionList(){
-    const collectionList = [
-        {
-            imgUrl:"https://cdn.caratlane.com/media/static/images/V4/2026/02_Feb/others/6-tiles/couple_d.jpg",
-            name: "Couple Rings"
-        },
-        {
-            imgUrl:"https://cdn.caratlane.com/media/static/images/V4/2026/02_Feb/others/6-tiles/rosegold_d.jpg",
-            name: "Rose Gold Earrings for Her"
-        },
-        {
-            imgUrl:"https://cdn.caratlane.com/media/static/images/V4/2026/02_Feb/others/6-tiles/heart_d.jpg",
-            name: "Heart Pendants"
-        },
-        {
-            imgUrl:"https://cdn.caratlane.com/media/static/images/V4/2026/02_Feb/others/6-tiles/sub15k_d.jpg",
-            name: "Valentine's Gifts under 15K"
-        },
-        {
-            imgUrl:"https://cdn.caratlane.com/media/static/images/V4/2026/02_Feb/others/6-tiles/evileye_d.jpg",
-            name: "Evil Eye Designs"
-        },
-        {
-            imgUrl:"https://cdn.caratlane.com/media/static/images/V4/2026/02_Feb/others/6-tiles/Chains_d.jpg",
-            name: "Gold Chains for Him"
-        }
-    ];
+interface CollectionDetails{
+    imgUrl: string;
+    name: string;
+}
+
+interface collectionListProps{
+    collectionListImg: CollectionDetails[]
+}
+
+function CollectionList(props:collectionListProps){
+    const {collectionListImg:collectionList} = props
     return (
         <div className="container-fluid p-3 rounded-3 bg-secondary-subtle">
                 <div className="row pt-3 pe-2">

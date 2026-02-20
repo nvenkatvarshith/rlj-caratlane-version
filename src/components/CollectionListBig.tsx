@@ -1,12 +1,11 @@
 import './../styles/CollectionListBig.css'
 
-function CollectionListBig(){
-    const collectionsURL = [
-        "https://cdn.caratlane.com/media/static/images/V4/2026/02_Feb/others/collections/aneka_d.jpg",
-        "https://cdn.caratlane.com/media/static/images/V4/2026/02_Feb/others/collections/polki_d.jpg",
-        "https://cdn.caratlane.com/media/static/images/V4/2026/02_Feb/others/collections/adaa_d.jpg",
-        "https://cdn.caratlane.com/media/static/images/V4/2026/02_Feb/others/collections/disney_d.jpg"
-    ];
+interface CollectionListBigProps{
+    collectionBigURL: string[];
+}
+
+function CollectionListBig(props: CollectionListBigProps){
+    const {collectionBigURL:collectionsURL} = props;
 
     return (
         <div className="container-fluid text-center my-3 bg-secondary-subtle">

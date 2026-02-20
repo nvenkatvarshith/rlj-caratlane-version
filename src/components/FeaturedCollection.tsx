@@ -1,44 +1,22 @@
-function FeaturedCollection(){
-    const collection = {
-            imgUrl:'https://cdn.caratlane.com/media/static/images/V4/2026/01-JAN/Banner/shaya_offer/04/Col_Desktop.jpg',
-            products: [
-                {
-                    id : 1,
-                    prodImgUrl: 'https://cdn.caratlane.com/media/catalog/product/cache/6/image/480x480/9df78eab33525d08d6e5fb8d27136e95/B/E/BE01368-SSS300_11_listfront.jpg',
-                    price: 6899,
-                    discountPrice: 5519,
-                    name: "Gratitude Gold Plated 925 Silver Diamond Earrings"   
-                },
-                {
-                    id : 2,
-                    prodImgUrl: 'https://cdn.caratlane.com/media/catalog/product/cache/6/image/480x480/9df78eab33525d08d6e5fb8d27136e95/B/L/BL00832-SSS300_11_listfront.jpg',
-                    price: 8800,
-                    discountPrice: 7040,
-                    name: "Kindred Gold Plated 925 Silver Diamond Necklace" 
-                },
-                {
-                    id : 3,
-                    prodImgUrl: 'https://cdn.caratlane.com/media/catalog/product/cache/6/image/480x480/9df78eab33525d08d6e5fb8d27136e95/B/R/BR00573-SSS300_11_listfront.jpg',
-                    price: 8399,
-                    discountPrice: 6719,
-                    name: "Transcend Gold Plated 925 Silver Diamond Ring" 
-                },
-                {
-                    id : 4,
-                    prodImgUrl: 'https://cdn.caratlane.com/media/catalog/product/cache/6/image/480x480/9df78eab33525d08d6e5fb8d27136e95/B/L/BL00853-SSS300_11_listfront.jpg',
-                    price: 17699,
-                    discountPrice: 14159,
-                    name: "Believe  925 Silver Diamond Necklace" 
-                },
-                {
-                    id : 5,
-                    prodImgUrl: 'https://cdn.caratlane.com/media/catalog/product/cache/6/image/480x480/9df78eab33525d08d6e5fb8d27136e95/B/E/BE01381-SSS300_11_listfront.jpg',
-                    price: 14299,
-                    discountPrice: 11439,
-                    name: "Flourish Gold Plated 925 Silver Diamond Stud Earrings" 
-                }
-            ]
-        };
+interface product{
+    id: number;
+    prodImgUrl: string;
+    price: number;
+    discountPrice: number;
+    name: string
+}
+
+interface featuredCollection{
+    imgUrl: string;
+    products: product[]
+}
+
+interface featuredProps{
+    featuredCollection: featuredCollection;
+}
+
+function FeaturedCollection(props:featuredProps){
+    const {featuredCollection: collection} = props;
     return (
         <div className="container-fluid my-3 ">
             <div className="row">

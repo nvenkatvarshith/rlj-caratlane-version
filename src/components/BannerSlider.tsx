@@ -1,15 +1,15 @@
-function BannerSlider(){
-    const BannerImgUrl = [
-        'https://cdn.caratlane.com/media/static/images/V4/2026/02_Feb/Banner/Digigold/Diggold_desktop.jpg',
-        'https://cdn.caratlane.com/media/static/images/V4/2026/02_Feb/Banner/VT_Offer/04/Desktop.jpg',
-        'https://cdn.caratlane.com/media/static/images/V4/2026/01-JAN/Banner/blog/02/Desktop_1760x630.jpg'
-    ]
+interface BannerProps{
+    bannerImgUrl: string[];
+}
+
+function BannerSlider(props:BannerProps){
+    const {bannerImgUrl} = props;
     return (
         <div className="container-fluid mt-3">
             <div id="carouselExampleAutoplaying" className="carousel slide" data-bs-ride="carousel">
             <div className="carousel-inner rounded-5">
                 {
-                    BannerImgUrl.map((banner) => {
+                    bannerImgUrl.map((banner) => {
                         return (
                             <div className="carousel-item active" key={banner} data-bs-interval="1000"> 
                                 <img src={banner} className="d-block w-100" alt="..."/>

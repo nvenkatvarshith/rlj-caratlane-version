@@ -1,9 +1,9 @@
-function CollectionGrid(){
-    const collectionImg = [
-        'https://cdn.caratlane.com/media/static/images/V4/2026/Shaya/02-Feb/Responsive/12/Responsive_03.jpg',
-        'https://cdn.caratlane.com/media/static/images/V4/2026/01-JAN/Banner/9KT_Offer/04/UB_Desktop.jpg',
-        'https://cdn.caratlane.com/media/static/images/V4/2026/01-JAN/Banner/50_offer/01/UB_Desktop.jpg'
-    ];
+interface CollectionGridProps{
+    collectionGridImgUrl: string[];
+}
+
+function CollectionGrid(props:CollectionGridProps){
+    const {collectionGridImgUrl:collectionImg} = props;
     return (
         <div className="container-fluid p-3">
             <div className="row">

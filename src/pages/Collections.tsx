@@ -1,9 +1,10 @@
 import ProductCollection from '../components/ProductCollection';
 import './../styles/pages/Collections.css'
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 function Collections(){
     const topFilters = ["All", "Fast Delivery", "Latest Designs", "Store pickup", "Try at Home"];
+    const {collectionName} = useParams();
     const products = [
         {
             id:1,
@@ -41,7 +42,9 @@ function Collections(){
         <div>
             <div className='bg-light'>
                 <div className="container py-3">
-                    <h5>Adjustable Bracelet Jewellery</h5>
+                    <h5>{collectionName 
+                        ?(`${collectionName.charAt(0).toUpperCase()}${collectionName.substring(1, collectionName.length - 1)}`) 
+                        : null}</h5>
                     <nav id="breadcrumb" aria-label="breadcrumb">
                         <ol className="breadcrumb text-uppercase">
                             <li className="breadcrumb-item small"><Link to="/" className='text-decoration-none text-dark'>Home</Link></li>

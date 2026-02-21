@@ -1,0 +1,9 @@
+.prod-img div{
+    overflow: hidden;
+}
+
+.prod-img img:hover{
+    cursor: pointer;
+    transform: scale(120%);
+    transition: transform 0.4s 0s ease;
+}

@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import logo from './../assets/RLJ_Logo.png';
 import { useState } from 'react';
 
@@ -107,7 +108,7 @@ function Navbar() {
     };
 
     let [currentMenuData, setCurrentMenuDate] = useState<CategoryData>(navigationData["rings"]);
-
+    let [currentCategory, setCurrentCategory] = useState("rings");
 
     const displaySubCategories = (category: string) => {
         document.getElementById("subcategory")?.classList.remove("d-none");
@@ -119,6 +120,7 @@ function Navbar() {
             const data = navigationData[category.toLowerCase() as keyof typeof navigationData];
             if (data) {
                 setCurrentMenuDate(data);
+                setCurrentCategory(category);
             }
     };
 
@@ -133,7 +135,7 @@ function Navbar() {
     return (
         <div className='container-fluid p-0'>
             <nav className="navbar navbar-expand-lg bg-body-tertiary px-5 ">
-                <a className="navbar-brand" href="#"><img src={logo} alt="RLJ_Logo" width="60px" /></a>
+                <Link className="navbar-brand" to=""><img src={logo} alt="RLJ_Logo" width="60px" /></Link>
                 <ul className="navbar-nav mb-2 mb-lg-0 w-100 align-items-center d-none d-lg-flex column-gap-3">
                     <div className='w-50 text-end'>
                         <input type="search" className='w-75 py-2 px-1' name="search" id="search" placeholder='Search' />
@@ -171,7 +173,7 @@ function Navbar() {
                                 {categories.map((category) => {
                                     return (
                                         <li className="nav-item me-3" key={category} onMouseOver={() => displaySubCategories(category)}>
-                                            <a className="nav-link" href="#">{category}</a>
+                                            <Link className="nav-link" to={"/jewellery/"+category.toLowerCase()}>{category}</Link>
                                         </li>
                                     );
                                 })}
@@ -190,7 +192,7 @@ function Navbar() {
                                             {
                                                 subcategory.items.map((item) => {
                                                     return (
-                                                        <li key={item} className='mb-2'>{item}</li>
+                                                        <li key={item} className='mb-2'><Link to={`/jewellery/${item}-${currentCategory.toLowerCase()}`} className='text-decoration-none text-dark'>{item}</Link></li>
                                                     )
                                                 })
                                             }

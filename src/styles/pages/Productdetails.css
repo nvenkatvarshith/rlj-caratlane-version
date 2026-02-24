@@ -7,3 +7,8 @@
     transform: scale(120%);
     transition: transform 0.4s 0s ease;
 }
+
+
+#icon-description i{
+    margin-bottom: 20px;
+}

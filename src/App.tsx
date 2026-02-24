@@ -4,6 +4,7 @@ import Collections from './pages/Collections'
 import Homepage from './pages/Homepage'
 import {Routes, Route} from 'react-router-dom'
 import Productdetails from './pages/Productdetails'
+import Footer from './components/Footer'
 
 function App() {
 
@@ -15,7 +16,7 @@ function App() {
           <Route path='jewellery/:collectionName' element={<Collections />}></Route>
           <Route path='jewellery/product/:productName' element={<Productdetails />}></Route>
         </Routes>
-        
+        <Footer />
     </div>
   )
 }

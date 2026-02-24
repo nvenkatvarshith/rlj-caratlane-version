@@ -312,7 +312,7 @@ function Productdetails(){
                     </ol>
                 </nav>
                 <div className="row">
-                    <div className="col-lg-7 prod-img">
+                    <div className="col-lg-8 prod-img">
                         <div className="row">
                         {product.image.map((img) => {
                             if(img.type !== "video"){
@@ -325,7 +325,7 @@ function Productdetails(){
                         })}
                         </div>
                     </div>
-                    <div className="col-lg-5 ps-3">
+                    <div className="col-lg-4 ps-3">
                         <button className="btn btn-sm btn-outline-secondary">4.9 <i className="fa-solid fa-star"></i> | 214 Ratings </button>
                         <h5 className="mb-0 mt-2">{product.formatted_special_price}<span className="text-decoration-line-through ms-2 text-secondary">{product.formatted_price}</span><span className="text-danger fw-light">(3%off)</span></h5>
                         <span className="small">(MRP Inclusive of all taxes)</span>
@@ -387,16 +387,38 @@ function Productdetails(){
                             <h4>Product Details</h4>
                             <h6>SKU {product.sku}</h6>
                             <p>Introducing the Ashvi Classic Kids' Gold Earrings! These stunning earrings are a must-have for any young fashionista. The circular balis are set in 14 KT yellow gold, adding a touch of elegance and sophistication to any outfit. The classic design is timeless and will never go out of style. With their comfortable and secure fit, your child will be able to wear them all day with ease. Whether it's a birthday party, a school dance, or just a day out with friends, these earrings will make your child feel like a true princess.</p>
-                            <div className="row" id="materials">
-                                <div className="col-lg-6">
+                            <div className="row border rounded-3 py-2" id="materials">
+                                <div className="col-lg-6 border-end">
                                     <h6 className="text-uppercase">{product.material[0]}</h6>
-                                    <span className="me-2">{product.metal}</span>
+                                    <span className="me-2">{product.metal}</span><br />
                                     <span>
                                         1.060 g (Net wt)
                                     </span>
                                 </div>
                                 <div className="col-lg-6">
-                                    Dimensions
+                                    <h6>Dimensions</h6>
+                                    1.4 (Width) <br />
+                                    9.7 mm (Height) <br />
+                                    1.060 g (Gross wt) <br />
+                                    0 (Length)
+                                </div>
+                            </div>
+                            <p className="py-2 border-top border-bottom mt-4">Manufactured by CaratLane Trading Pvt Ltd</p>
+                            <div className="row mt-3 small text-center align-items-center">
+                                <div className="col-lg-4 small">
+                                    <img src="https://cdn.caratlane.com/media/static/images/web/BIS_-_Bureau_of_Indian_Standards-1.png" alt="bis" />
+                                    <h6 className="mb-0 mt-2">BIS*</h6>
+                                    <span>Hallmarked Jewellery</span>
+                                </div>
+                                <div className="col-lg-4 small">
+                                    <img src="https://cdn.caratlane.com/media/static/images/web/Tata-Certified-1.png" alt="TATA" />
+                                    <h6 className="mb-0 mt-3">Trust of TATA</h6>
+                                    <span>Spirit of CaratLane</span>
+                                </div>  
+                                <div className="col-lg-4 small">
+                                    <img src="https://cdn.caratlane.com/media/static/images/web/Certificate-2.png" alt="certifiec" />
+                                    <h6 className="mb-0 mt-2">100% Certified</h6>
+                                    <span>by CaratLane</span>
                                 </div>
                             </div>
                         </div>
